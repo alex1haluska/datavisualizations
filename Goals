@@ -12,3 +12,22 @@ plt.rc('lines', linewidth=15)
 plt.ylabel('Goals')
 plt.xlabel('Year')
 plt.title('Average Goals per Game Over World Cup History')
+### This graph takes the number of goals scored each year and divides it by the number of matches played to 
+###return the average goals per match for each year in World Cup History ##
+### Was unable to figure out how to set the X- Axis to the year so left if as the index so I redid converted things to a series of arrays
+###and returned them this way ###
+
+world_cup = pd.read_csv('WorldCups.csv')
+years = np.array(world_cup['Year'])
+Goals = np.array(world_cup['GoalsScored'])
+Matches = np.array(world_cup['MatchesPlayed'])
+my_df2 = pd.DataFrame(index =years)
+my_df2['Goals Per Year'] = Goals
+my_df2['MatchesPlayed'] = Matches
+my_df2['Goals Per Game'] = my_df2['Goals Per Year'] /my_df2['MatchesPlayed']
+my_df2
+plt.plot(my_df2['Goals Per Game'],color='red')
+plt.rc('lines', linewidth=4)
+plt.ylabel('Goals')
+plt.xlabel('Year')
+plt.title('Average Goals per Game Over World Cup History')
