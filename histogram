@@ -1,0 +1,9 @@
+champ = pd.read_csv('championsdata.csv')
+plt.subplot(1, 3, 1)
+x = np.array(champ['FGP'])
+plt.boxplot(x)
+
+### Gives a look at the Feild Goal Percentage of teams in the NBA Finals and how they are 
+### distributed. Further filters can give us comparison between teams that win the game and 
+### lose the game
+
