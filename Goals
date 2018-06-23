@@ -1,0 +1,16 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+%matplotlib inline
+world_cup = pd.read_csv('WorldCups.csv')
+my_df = pd.DataFrame(world_cup)
+my_df['goals_per_game'] = my_df['GoalsScored']/my_df['MatchesPlayed']
+my_df
+
+plt.plot(my_df['goals_per_game'],color='red')
+plt.rc('lines', linewidth=15)
+plt.ylabel('Goals')
+plt.xlabel('Year')
+plt.title('Average Goals per Game Over World Cup History')
+
+
